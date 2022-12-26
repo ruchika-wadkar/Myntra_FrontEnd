@@ -1,0 +1,21 @@
+.container{
+    margin: auto;
+    text-align:center;
+    padding-top: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+.container2{
+    text-align:left;
+}
+
+.req{
+    color: red;
+}
+
+
+/* h1{
+    text-decoration: underline;  
+} */
+
+

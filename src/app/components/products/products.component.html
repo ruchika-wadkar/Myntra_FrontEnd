@@ -1,0 +1,237 @@
+<div class="container">
+  <div class="container2">
+    <button class="btn btn-success mx-3" (click)="open(content)">
+      Add New Product
+    </button>
+  </div>
+  <h1>Product Details</h1>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>productId</th>
+        <th>productName</th>
+        <th>price</th>
+
+        <th>unit</th>
+        <th>supplierId</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>
+          <span>{{ product.productID }}</span>
+        </td>
+        <td>
+          <span>{{ product.productName }}</span>
+        </td>
+        <td>
+          <span>{{ product.price | currency }}</span>
+        </td>
+        <td>
+          <span>{{ product.unit }}</span>
+        </td>
+
+        <td>
+          <span>{{ product.supplier.supplierID }}</span>
+        </td>
+
+        <td>
+          <tr>
+            <button
+              class="btn btn-sm btn-warning mx-1 mb-1"
+              (click)="open(content2)"
+              (click)="edit(product)"
+            >
+              <i class="fa fa-edit"></i> Edit
+            </button>
+            <button
+              class="btn btn-sm btn-danger mx-1 mb-1"
+              (click)="deleteProduct(product.productID)"
+            >
+              <i class="fa fa-remove"></i> Delete
+            </button>
+            <button
+              class="btn btn-sm btn-info mx-1 mb-1"
+              (click)="addToCart(product)"
+            >
+              <i class="fa fa-shopping-cart"></i> Buy
+            </button>
+          </tr>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- UPDATE MODAL -->
+<section class="modal-content">
+  <ng-template #content2 let-modal>
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-basic-title">Update Product</h2>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #updateForm="ngForm" (ngSubmit)="updateProduct()" novalidate>
+        <div class="form-group mt-3">
+          <label for="productName">
+            ProductName <span class="req">* </span>
+          </label>
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="productToUpdate.productName"
+            name="productName"
+            id="txt"
+            required
+            placeholder=" "
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="price">Price <span class="req">* </span></label>
+          <input
+            id="price"
+            name="price"
+            class="form-control"
+            required
+            [(ngModel)]="productToUpdate.price"
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="unit">Unit <span class="req">* </span></label>
+          <input
+            id="unit"
+            name="unit"
+            class="form-control"
+            required
+            [(ngModel)]="productToUpdate.unit"
+          />
+        </div>
+
+        <div class="form-group mt-3 mb-3">
+          <label for="supplierID"
+            >Supplier Id <span class="req">* </span></label
+          >
+          <input
+            id="supplierID"
+            name="supplierID"
+            class="form-control"
+            required
+            [(ngModel)]="productToUpdate.supplierID"
+          />
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto mb-3">
+          <button
+            data-dismiss="modal"
+            type="submit"
+            class="btn btn-success mt-3"
+          >
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+  </ng-template>
+</section>
+
+<!--  MODAL FOR POST METHOD -->
+
+<section class="modal-content">
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-basic-title">New Product</h2>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="form-group mt-3">
+          <label for="productName">
+            ProductName <span class="req">* </span>
+          </label>
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="productVo.productName"
+            name="productName"
+            id="txt"
+            required
+            placeholder=" "
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="price">Price <span class="req">* </span></label>
+          <input
+            id="price"
+            name="price"
+            class="form-control"
+            required
+            [(ngModel)]="productVo.price"
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="unit">Unit <span class="req">* </span></label>
+          <input
+            id="unit"
+            name="unit"
+            class="form-control"
+            required
+            [(ngModel)]="productVo.unit"
+          />
+        </div>
+
+        <div class="form-group mt-3 mb-3">
+          <label for="productname"
+            >Supplier Id <span class="req">* </span></label
+          >
+          <input
+            id="supplierId"
+            name="supplierID"
+            class="form-control"
+            required
+            [(ngModel)]="productVo.supplierID"
+          />
+        </div>
+        <!-- <div class="form-group">  -->
+        <!-- <div class ="input-group"> -->
+        <div class="d-grid gap-2 col-6 mx-auto mb-3">
+          <button
+            data-dismiss="modal"
+            type="submit"
+            class="btn btn-success mt-3"
+          >
+            Submit
+          </button>
+        </div>
+        <!-- </div>
+          </div> -->
+      </form>
+    </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+  </ng-template>
+</section>

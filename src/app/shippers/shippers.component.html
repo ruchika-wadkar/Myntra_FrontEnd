@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="container2">
+    <!-- <button class="btn btn-success mx-3">Add New Product</button> -->
+  </div>
+  <h1>Shipper Details</h1>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ShipperId</th>
+        <th>ShipperName</th>
+        <th>PhoneNo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ship of shipper">
+        <td>
+          <span>{{ ship.shipperID }}</span>
+        </td>
+        <td>
+          <span>{{ ship.shipperName }}</span>
+        </td>
+        <td>
+          <span>{{ ship.phone }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
