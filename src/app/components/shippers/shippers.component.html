@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="container2">
+    <!-- <button class="btn btn-success mx-3">Add New Product</button> -->
+  </div>
+  <h1>Shipper Details</h1>
+  <span class="test-spacer">
+    <button class="btn btn-success mb-3" (click)="open(contentshipper)">
+      Add shipper
+    </button></span
+  >
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ShipperId</th>
+        <th>ShipperName</th>
+        <th>PhoneNo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ship of shippers">
+        <td>
+          <span>{{ ship.shipperID }}</span>
+        </td>
+        <td>
+          <span>{{ ship.shipperName }}</span>
+        </td>
+        <td>
+          <span>{{ ship.phone }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 
+ add shipper modal -->
+<section class="modal-content">
+  <ng-template #contentshipper let-modal>
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-basic-title">Add shipper</h2>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="saveShipper()">
+        <div class="form-group mt-3">
+          <label for="shipperName">
+            ShipperName <span class="req">* </span>
+          </label>
+          <input
+            class="form-control"
+            type="text"
+            name="shipperName"
+            id="txt"
+            required
+            [(ngModel)]="shipper.shipperName"
+            [ngModelOptions]="{ standalone: true }"
+            placeholder=" "
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="shipperID">ShipperId<span class="req">* </span></label>
+          <input
+            id="shipperID"
+            name="shipperID"
+            class="form-control"
+            required
+            [(ngModel)]="shipper.shipperID"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="phone">Phone <span class="req">* </span></label>
+          <input
+            id="phone"
+            name="phone"
+            class="form-control"
+            required
+            [(ngModel)]="shipper.phone"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto mb-3">
+          <button
+            data-dismiss="modal"
+            type="submit"
+            class="btn btn-success mt-3"
+          >
+            Add Shipper
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+  </ng-template>
+</section>

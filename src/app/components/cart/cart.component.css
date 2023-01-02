@@ -5,3 +5,14 @@
   padding-left: 150px;
   padding-right: 150px;
 }
+
+.container2 {
+  text-align: left;
+}
+
+h1 {
+  text-decoration: overline coral;
+}
+.table > thead > tr > th {
+  background-color: #e1aad9;
+}

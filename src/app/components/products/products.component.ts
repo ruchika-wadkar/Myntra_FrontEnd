@@ -132,31 +132,26 @@ export class ProductsComponent implements OnInit {
   //DELETING THE PRODUCT
 
   deleteProduct(pid: number) {
-    this.service.deleteProduct(pid).subscribe(
-      (resp) => {
-        console.log(resp);
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 2000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-          },
-        });
+    this.service.deleteProduct(pid).subscribe((resp) => {
+      console.log(resp);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer);
+          toast.addEventListener('mouseleave', Swal.resumeTimer);
+        },
+      });
 
-        Toast.fire({
-          icon: 'success',
-          title: 'Product Deleted Successfully',
-        });
-        this.ngOnInit();
-      }
-      // err =>{
-      //   console.log(err);
-      // }
-    );
+      Toast.fire({
+        icon: 'success',
+        title: 'Product Deleted Successfully',
+      });
+      this.ngOnInit();
+    });
   }
 
   onSubmit(f: NgForm) {

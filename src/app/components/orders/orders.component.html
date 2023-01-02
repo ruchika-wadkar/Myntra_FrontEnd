@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="test mt-5" style="align-items: center">
+    <h1>Order Details</h1>
+  </div>
+
+  <table class="table table-bordered table-striped mt-5">
+    <thead class="thead-light">
+      <tr>
+        <td><b>Order ID</b></td>
+        <td><b>Customer Name</b></td>
+        <td><b>Order Date</b></td>
+        <td><b>Shipper</b></td>
+        <td><b>Product Name</b></td>
+        <td><B>Quantity</B></td>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let order of Orders">
+        <td>
+          {{ order.orderID }}
+        </td>
+        <td>
+          {{ order.customer.customerName }}
+        </td>
+        <td>
+          {{ order.orderDate }}
+        </td>
+        <td>
+          {{ order.shipper.shipperName }}
+        </td>
+        <td>
+          <tr *ngFor="let ord of order.orderDetails">
+            {{
+              ord.product.productName
+            }}
+          </tr>
+        </td>
+        <td>
+          <tr *ngFor="let ord of order.orderDetails">
+            {{
+              ord.quantity
+            }}
+          </tr>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

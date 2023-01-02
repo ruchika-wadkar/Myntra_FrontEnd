@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { HomeComponent } from './components/home/home.component';
+import { OrdersComponent } from './components/orders/orders.component';
 import { ProductsComponent } from './components/products/products.component';
-import { ShippersComponent } from './shippers/shippers.component';
+import { ShippersComponent } from './components/shippers/shippers.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,11 @@ const routes: Routes = [
   {
     path: 'shippers',
     component: ShippersComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'orders',
+    component: OrdersComponent,
     pathMatch: 'full',
   },
 ];

@@ -1,55 +1,280 @@
-<p>customer works</p>
-
-<!-- <p>customer works</p>
-<link
-  rel="stylesheet"
-  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-/>
-<div class="container demo">
-  <div class="text-center">
-    <button
-      type="button"
-      class="btn btn-demo"
-      data-toggle="modal"
-      data-target="#myModal2"
-    >
-      Right Sidebar Modal
-    </button>
+<div class="container">
+  <div class="container2">
+    <!-- <button class="btn btn-success mx-3">Add New Product</button> -->
   </div>
-  <div
-    class="modal fade"
-    id="myModal2"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="myModalLabel2"
+  <h1>Customer Details</h1>
+  <span class="test-spacer">
+    <button class="btn btn-success mb-3" (click)="open(content3)">
+      Add Customer
+    </button></span
   >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-          Right Sidebar
-        </div>
-        <div class="modal-body">
-          <p>
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-            terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-            skateboard dolor brunch.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>CustomerID</th>
+        <th>CustomerName</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Postal Code</th>
+        <th>Country</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>
+          <span>{{ customer.customerID }}</span>
+        </td>
+        <td>
+          <span>{{ customer.customerName }}</span>
+        </td>
+        <td>
+          <span>{{ customer.address }}</span>
+        </td>
+        <td>
+          <span>{{ customer.city }}</span>
+        </td>
+        <td>
+          <span>{{ customer.postalCode }}</span>
+        </td>
+        <td>
+          <span>{{ customer.country }}</span>
+        </td>
+        <td>
+          <tr>
+            <button
+              class="btn btn-sm btn-warning mx-1 mb-1"
+              (click)="open(content4)"
+              (click)="edit(customer)"
+            >
+              <i class="fa fa-edit"></i> Edit
+            </button>
+            <button
+              class="btn btn-sm btn-danger mx-1 mb-1"
+              (click)="deletecustomer(customer.customerID)"
+            >
+              <i class="fa fa-remove"></i> Delete
+            </button>
+          </tr>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"
-></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+<section class="modal-content">
+  <ng-template #content4 let-modal>
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-basic-title">Update Customer</h2>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="updatecustomer()" novalidate>
+        <div class="form-group mt-3">
+          <label for="customerID">
+            customerName <span class="req">* </span>
+          </label>
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="customerToUpdate.customerID"
+            name="customerID"
+            id="txt"
+            required
+            placeholder=" "
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="customerName">
+            Customer Name <span class="req">* </span></label
+          >
+          <input
+            id="customerName"
+            name="customerName"
+            class="form-control"
+            required
+            [(ngModel)]="customerToUpdate.customerName"
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="address">Address <span class="req">* </span></label>
+          <input
+            id="address"
+            name="address"
+            class="form-control"
+            required
+            [(ngModel)]="customerToUpdate.address"
+          />
+        </div>
+
+        <div class="form-group mt-3 mb-3">
+          <label for="city">City <span class="req">* </span></label>
+          <input
+            id="city"
+            name="city"
+            class="form-control"
+            required
+            [(ngModel)]="customerToUpdate.city"
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="postalCode">
+            PostalCode <span class="req">* </span></label
+          >
+          <input
+            id="postalCode"
+            name="postalCode"
+            class="form-control"
+            required
+            [(ngModel)]="customerToUpdate.postalCode"
+          />
+        </div>
+        <div class="form-group mt-3">
+          <label for="country"> Country <span class="req">* </span></label>
+          <input
+            id="country"
+            name="country"
+            class="form-control"
+            required
+            [(ngModel)]="customerToUpdate.country"
+          />
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto mb-3">
+          <button
+            data-dismiss="modal"
+            type="submit"
+            class="btn btn-success mt-3"
+          >
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+  </ng-template>
+</section>
+
+<!-- Modal -->
+
+<section class="modal-content">
+  <ng-template #content3 let-modal>
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-basic-title">New Customer</h2>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="savecustomer()">
+        <!-- <div class="form-group mt-3">
+          <label for="customerID">
+            Customer ID <span class="req">* </span>
+          </label>
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="customer.customerID"
+            name="customerID"
+            id="txt"
+            required
+            placeholder=" "
+          />
+        </div> -->
+
+        <div class="form-group mt-3">
+          <label for="customerName">
+            Customer Name <span class="req">* </span></label
+          >
+          <input
+            id="price"
+            name="price"
+            class="form-control"
+            required
+            [(ngModel)]="customer.customerName"
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="address">Address <span class="req">* </span></label>
+          <input
+            id="address"
+            name="address"
+            class="form-control"
+            required
+            [(ngModel)]="customer.address"
+          />
+        </div>
+
+        <div class="form-group mt-3 mb-3">
+          <label for="city">City <span class="req">* </span></label>
+          <input
+            id="city"
+            name="city"
+            class="form-control"
+            required
+            [(ngModel)]="customer.city"
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="postalCode">
+            PostalCode <span class="req">* </span></label
+          >
+          <input
+            id="postalCode"
+            name="postalCode"
+            class="form-control"
+            required
+            [(ngModel)]="customer.postalCode"
+          />
+        </div>
+        <div class="form-group mt-3">
+          <label for="country"> Country <span class="req">* </span></label>
+          <input
+            id="country"
+            name="country"
+            class="form-control"
+            required
+            [(ngModel)]="customer.country"
+          />
+        </div>
+        <!-- <div class="form-group">  -->
+        <!-- <div class ="input-group"> -->
+        <div class="d-grid gap-2 col-6 mx-auto mb-3">
+          <button
+            data-dismiss="modal"
+            type="submit"
+            class="btn btn-success mt-3"
+          >
+            Submit
+          </button>
+        </div>
+        <!-- </div>
+          </div> -->
+      </form>
+    </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+  </ng-template>
+</section>

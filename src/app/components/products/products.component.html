@@ -5,7 +5,7 @@
     </button>
   </div>
   <h1>Product Details</h1>
-  <table class="table table-bordered table-striped">
+  <table class="table table-bordered table-striped mt-5">
     <thead>
       <tr>
         <th>productId</th>
@@ -26,7 +26,7 @@
           <span>{{ product.productName }}</span>
         </td>
         <td>
-          <span>{{ product.price | currency }}</span>
+          <span>{{ product.price | currency : "INR" }}</span>
         </td>
         <td>
           <span>{{ product.unit }}</span>

@@ -8,8 +8,19 @@ export class CartService {
   items: Product[] = [];
 
   constructor() {
-    // localStorage.setItem('items', JSON.stringify(this.items));
     this.items = JSON.parse(localStorage.getItem('items'));
+  }
+
+  getItems() {
+    console.log(this.items);
+    return JSON.parse(localStorage.getItem('items'));
+  }
+  getPrice() {
+    let temp = 0;
+    this.items.forEach((element) => {
+      temp += element.price;
+    });
+    return temp;
   }
 
   addToCart(product: Product) {
@@ -17,8 +28,8 @@ export class CartService {
     localStorage.setItem('items', JSON.stringify(this.items));
   }
 
-  getItems() {
-    console.log(this.items);
-    return JSON.parse(localStorage.getItem('items'));
+  emptyCart() {
+    this.items = [];
+    localStorage.setItem('items', JSON.stringify(this.items));
   }
 }

@@ -11,8 +11,9 @@
             <th scope="col">ProductId</th>
             <th scope="col">ProductName</th>
             <th scope="col">Price</th>
-            <th scope="col">Unit</th>
+            <!-- <th scope="col">Quantity</th> -->
             <th scope="col">SupplierId</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -24,14 +25,16 @@
               <span>{{ item.productName }}</span>
             </td>
             <td>
-              <span>{{ item.price | currency }}</span>
-            </td>
-            <td>
-              <span>{{ item.unit }}</span>
+              <span>{{ item.price | currency : "INR" }}</span>
             </td>
 
             <td>
               <span>{{ item.supplier.supplierID }}</span>
+            </td>
+            <td>
+              <span
+                ><button (click)="deletefromcart(item)">Remove</button></span
+              >
             </td>
           </tr>
         </tbody>
@@ -40,11 +43,27 @@
 
     <div class="col-lg-3">
       <div class="border bg-light rounded p-4">
-        <h3>Total Payable:</h3>
-        <br />
-        <h4 class="text-right">Rs. {{ totalPrice }}</h4>
-        <button class="btn btn-sm btn-warning mx-1">Proceed To Payment</button>
-        <br />
+        <h3><b>Total Payable:</b></h3>
+
+        <h4 class="text-right">{{ count | currency : "INR" }}</h4>
+        <!-- <button class="btn btn-sm btn-warning mx-1">Place Order</button> -->
+
+        <hr />
+        <div class="form-group">
+          <label for="nameInput" style="padding: 20px"
+            ><b> Enter Customer ID : </b></label
+          >
+          <input
+            #nameInput
+            type="text"
+            class="form-control"
+            placeholder="Enter Customer ID"
+          />
+
+          <button class="btn btn-sm btn-warning mx-1 mt-3" (click)="buyNow()">
+            Place Order
+          </button>
+        </div>
       </div>
     </div>
   </div>
