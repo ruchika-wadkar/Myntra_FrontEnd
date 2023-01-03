@@ -16,3 +16,17 @@ h1 {
 .table > thead > tr > th {
   background-color: #e1aad9;
 }
+
+.container-img{
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+.container-btn{
+  display: flex;
+  justify-content: center;
+  text-decoration:white !important;
+ 
+}
+
+

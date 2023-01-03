@@ -17,16 +17,21 @@ export class CartService {
   }
   getPrice() {
     let temp = 0;
+    if(this.items){
     this.items.forEach((element) => {
       temp += element.price;
     });
+  }
     return temp;
   }
 
   addToCart(product: Product) {
+    console.log(localStorage.getItem('items'));
     this.items.push(product);
     localStorage.setItem('items', JSON.stringify(this.items));
   }
+
+
 
   emptyCart() {
     this.items = [];
