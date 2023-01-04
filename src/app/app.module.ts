@@ -19,6 +19,8 @@ import { ProductsService } from './components/Services/products.service';
 import { CartComponent } from './components/cart/cart.component';
 import { ShippersComponent } from './components/shippers/shippers.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { ViewProductsComponent } from './components/view-products/view-products.component';
+import { ViewCustomersComponent } from './components/view-customers/view-customers.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { OrdersComponent } from './components/orders/orders.component';
     CartComponent,
     ShippersComponent,
     OrdersComponent,
+    ViewProductsComponent,
+    ViewCustomersComponent,
   ],
   imports: [
     BrowserModule,

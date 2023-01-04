@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="container2">
+        <a routerLink="/products" mat-flat-button color="primary">  Admin  </a> 
+    </div>
+    <h1>Product Details</h1>
+    <table class="table table-bordered table-striped mt-5">
+      <thead>
+        <tr>
+          <th>Product Id</th>
+          <th>Product Name</th>
+          <th>Price</th>
+  
+          <th>Unit</th>
+          <th>SupplierId</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>
+            <span>{{ product.productID }}</span>
+          </td>
+          <td>
+            <span>{{ product.productName }}</span>
+          </td>
+          <td>
+            <span>{{ product.price | currency : "INR" }}</span>
+          </td>
+          <td>
+            <span>{{ product.unit }}</span>
+          </td>
+  
+          <td>
+            <span>{{ product.supplier.supplierID }}</span>
+          </td>
+  
+          <td>
+            <tr>
+              
+              <button
+                class="btn btn-sm btn-warning mx-1 mb-1"
+                (click)="addToCart(product)"
+              >
+                <i class="fa fa-shopping-cart" style ="text-align: center;"></i> Add to Cart
+              </button>
+            </tr>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
