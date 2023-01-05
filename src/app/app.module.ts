@@ -34,19 +34,21 @@ import { ViewCustomersComponent } from './components/view-customers/view-custome
     OrdersComponent,
     ViewProductsComponent,
     ViewCustomersComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
+    
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatTableModule,
     FormsModule,
     NgbModule,
+   
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent],
