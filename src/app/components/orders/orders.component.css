@@ -3,6 +3,6 @@ h1 {
   text-decoration: overline coral;
 }
 
-.table > th > tr {
+.table > thead > tr {
   background-color: #e1aad9;
 }
