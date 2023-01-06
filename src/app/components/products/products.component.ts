@@ -59,6 +59,7 @@ export class ProductsComponent implements OnInit {
     unit: 0,
     price: 0,
     supplierID: 0,
+    productImg: '',
   };
 
   edit(productVo) {
@@ -166,6 +167,7 @@ export class ProductsComponent implements OnInit {
       unit: f.value.unit as number,
       productName: f.value.productName as string,
       supplierID: f.value.supplierID as number,
+      productImg: f.value.productImg as string,
     };
     // console.log(this.productVo);
     this.service.saveProduct(this.productVo).subscribe((res) => {

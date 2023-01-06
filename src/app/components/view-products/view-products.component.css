@@ -1,0 +1,35 @@
+.container {
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+    padding-right: 100px;
+  }
+
+ 
+  
+  .container2 {
+    text-align: left;
+  }
+  .req {
+    color: red;
+  }
+  
+  h1 {
+    text-decoration: overline coral;
+  }
+  
+  .table > thead > tr > th {
+    background-color: #e1aad9;
+  }
+
+  .card img{
+  width:200px;
+  height: 200px;
+  margin-bottom: 15px;  
+}
+
+.card{
+  padding: 10px;
+  margin:20px ;
+  border-color: rgb(179, 174, 174);
+} 

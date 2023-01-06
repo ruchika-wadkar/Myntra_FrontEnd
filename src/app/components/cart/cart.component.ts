@@ -33,7 +33,9 @@ export class CartComponent {
     this.count = this.count - cartItem.price;
     this.items = this.items.filter((itm) => itm !== cartItem);
     this.cartService.getItems();
+
     localStorage.setItem('items', JSON.stringify(this.items));
+    console.log(localStorage.getItem('items'));
   }
 
   @ViewChild('nameInput') nameInput!: ElementRef;

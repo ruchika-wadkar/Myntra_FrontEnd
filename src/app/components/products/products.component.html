@@ -8,12 +8,14 @@
   <table class="table table-bordered table-striped mt-5">
     <thead>
       <tr>
-        <th>productId</th>
-        <th>productName</th>
-        <th>price</th>
+        <th>Product Id</th>
+        
+        <th>Product Name</th>
+        <th>productImg</th>
+        <th>Price</th>
 
-        <th>unit</th>
-        <th>supplierId</th>
+        <th>Unit</th>
+        <th>SupplierId</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -23,8 +25,15 @@
           <span>{{ product.productID }}</span>
         </td>
         <td>
+          <span>
+            <img src = "{{ product.productImg }}" width="150"  height="150">
+          </span>
+        </td>
+        <td>
           <span>{{ product.productName }}</span>
         </td>
+        
+        
         <td>
           <span>{{ product.price | currency : "INR" }}</span>
         </td>
@@ -51,12 +60,12 @@
             >
               <i class="fa fa-remove"></i> Delete
             </button>
-            <button
+            <!-- <button
               class="btn btn-sm btn-info mx-1 mb-1"
               (click)="addToCart(product)"
             >
               <i class="fa fa-shopping-cart"></i> Buy
-            </button>
+            </button> -->
           </tr>
         </td>
       </tr>
@@ -127,6 +136,17 @@
             class="form-control"
             required
             [(ngModel)]="productToUpdate.supplierID"
+          />
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="productImg">ProductImg <span class="req">* </span></label>
+          <input
+            id="productImg"
+            name="productImg"
+            class="form-control"
+            required
+            [(ngModel)]="productToUpdate.productImg"
           />
         </div>
 
@@ -213,6 +233,16 @@
             class="form-control"
             required
             [(ngModel)]="productVo.supplierID"
+          />
+        </div>
+        <div class="form-group mt-3">
+          <label for="productImg">ProductImg <span class="req">* </span></label>
+          <input
+            id="productImg"
+            name="productImg"
+            class="form-control"
+            required
+            [(ngModel)]="productVo.productImg"
           />
         </div>
         <!-- <div class="form-group">  -->
