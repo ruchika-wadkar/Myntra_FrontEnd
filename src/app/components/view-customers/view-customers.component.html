@@ -1,1 +1,118 @@
-<p>view-customers works!</p>
+<div class="container-3">
+    <a routerLink="/CustomerDetails" mat-flat-button color="primary">Admin Side</a>
+
+</div>
+<div class="container">
+    <button class = "btn btn-md btn-warning" (click)="open(content3)"> Register Customer</button>
+    
+</div>
+
+<section class="modal-content">
+    <ng-template #content3 let-modal>
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-basic-title">New Customer</h2>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="savecustomer()">
+          <!-- <div class="form-group mt-3">
+            <label for="customerID">
+              Customer ID <span class="req">* </span>
+            </label>
+            <input
+              class="form-control"
+              type="text"
+              [(ngModel)]="customer.customerID"
+              name="customerID"
+              id="txt"
+              required
+              placeholder=" "
+            />
+          </div> -->
+  
+          <div class="form-group mt-3">
+            <label for="customerName">
+              Customer Name <span class="req">* </span></label
+            >
+            <input
+              id="price"
+              name="price"
+              class="form-control"
+              required
+              [(ngModel)]="customer.customerName"
+            />
+          </div>
+  
+          <div class="form-group mt-3">
+            <label for="address">Address <span class="req">* </span></label>
+            <input
+              id="address"
+              name="address"
+              class="form-control"
+              required
+              [(ngModel)]="customer.address"
+            />
+          </div>
+  
+          <div class="form-group mt-3 mb-3">
+            <label for="city">City <span class="req">* </span></label>
+            <input
+              id="city"
+              name="city"
+              class="form-control"
+              required
+              [(ngModel)]="customer.city"
+            />
+          </div>
+  
+          <div class="form-group mt-3">
+            <label for="postalCode">
+              PostalCode <span class="req">* </span></label
+            >
+            <input
+              id="postalCode"
+              name="postalCode"
+              class="form-control"
+              required
+              [(ngModel)]="customer.postalCode"
+            />
+          </div>
+          <div class="form-group mt-3">
+            <label for="country"> Country <span class="req">* </span></label>
+            <input
+              id="country"
+              name="country"
+              class="form-control"
+              required
+              [(ngModel)]="customer.country"
+            />
+          </div>
+          <!-- <div class="form-group">  -->
+          <!-- <div class ="input-group"> -->
+          <div class="d-grid gap-2 col-6 mx-auto mb-3">
+            <button
+              data-dismiss="modal"
+              type="submit"
+              class="btn btn-success mt-3"
+            >
+              Register
+            </button>
+          </div>
+          <!-- </div>
+            </div> -->
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+      </div> -->
+    </ng-template>
+  </section>
+
+

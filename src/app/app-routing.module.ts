@@ -7,6 +7,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ShippersComponent } from './components/shippers/shippers.component';
 import { ViewProductsComponent } from './components/view-products/view-products.component';
+import { ViewCustomersComponent } from './components/view-customers/view-customers.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,11 @@ const routes: Routes = [
   {
     path : 'viewproducts',
     component:ViewProductsComponent,
+    pathMatch:'full',
+  },
+  {
+    path : 'viewcustomers',
+    component:ViewCustomersComponent,
     pathMatch:'full',
   }
 ];

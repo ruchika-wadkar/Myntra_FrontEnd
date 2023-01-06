@@ -68,16 +68,18 @@
     </div>
   </div>
 </div>
-<div class="container-img" *ngIf="items?.length == 0">
+<div class="container-img col-lg-12" *ngIf="items?.length == 0">
   <div class="container-test">
       <img src="../assets/your-cart-is-empty.png" height="300px" width="600" class=" img1"> 
       
     </div>
-      <div class="container-btn">
-        <a routerLink="/viewproducts" mat-flat-button color="accent">Continue Shopping</a> 
-
-      </div>
       
+      
+</div>
+
+<div class="container-btn mt-3">
+  <a routerLink="/viewproducts" mat-flat-button color="accent">Continue Shopping</a> 
+
 </div>
 
 

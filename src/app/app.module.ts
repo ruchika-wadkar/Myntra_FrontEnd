@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -48,6 +48,7 @@ import { ViewCustomersComponent } from './components/view-customers/view-custome
     MatTableModule,
     FormsModule,
     NgbModule,
+    MdbCheckboxModule
    
   ],
   providers: [ProductsService],
