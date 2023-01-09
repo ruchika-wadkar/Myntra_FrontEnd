@@ -8,7 +8,7 @@
     "strict": false,
     "strictPropertyInitialization": false,
     "noImplicitOverride": true,
-    "noImplicitAny": false ,
+    "noImplicitAny": false,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
@@ -21,13 +21,8 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "types": [
-      "@angular/localize", "mocha", "node" , "jest"
-    ],
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "types": ["@angular/localize", "mocha", "node", "jest"],
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

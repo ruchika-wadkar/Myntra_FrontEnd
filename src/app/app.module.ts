@@ -23,6 +23,7 @@ import { ViewProductsComponent } from './components/UserComponents/view-products
 import { ViewCustomersComponent } from './components/UserComponents/view-customers/view-customers.component';
 import { AdminComponent } from './components/AdminComponents/admin/admin.component';
 import { UserComponent } from './components/UserComponents/user/user.component';
+import { ViewOrderComponent } from './components/UserComponents/view-order/view-order.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { UserComponent } from './components/UserComponents/user/user.component';
     ViewCustomersComponent,
     AdminComponent,
     UserComponent,
+    ViewOrderComponent,
   ],
   imports: [
     BrowserModule,

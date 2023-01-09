@@ -20,6 +20,7 @@ export class CartComponent {
     private ordersService: OrdersService
   ) {
     this.items = cartService.getItems();
+
     this.count = cartService.getPrice();
   }
   emptyCart() {
@@ -29,18 +30,22 @@ export class CartComponent {
   }
 
   deletefromcart(cartItem) {
-    console.log(cartItem);
+    // console.log(cartItem);
     this.count = this.count - cartItem.price;
-    this.items = this.items.filter((itm) => itm !== cartItem);
-    this.cartService.getItems();
+    this.cartService.removefromCart(cartItem);
 
-    localStorage.setItem('items', JSON.stringify(this.items));
-    console.log(localStorage.getItem('items'));
+    // localStorage.setItem('items', JSON.stringify(this.items));
+    this.items = this.cartService.getItems();
+    // this.cartService.getItems();
+    // console.log(localStorage.getItem('items') + 'line 36');
+    // this.cartService.getItems();
+    // console.log(localStorage.getItem('items') + ' hello');
   }
 
   @ViewChild('nameInput') nameInput!: ElementRef;
 
   buyNow() {
+    localStorage.setItem('customerID', this.nameInput.nativeElement.value);
     let date = new Date();
     let orderDetails: OrderDetails[] = [];
     this.items.forEach((element) => {

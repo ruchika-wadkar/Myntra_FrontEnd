@@ -12,16 +12,16 @@ export class CartService {
   }
 
   getItems() {
-    console.log(this.items);
+    // console.log(this.items);
     return JSON.parse(localStorage.getItem('items'));
   }
   getPrice() {
     let temp = 0;
-    if(this.items){
-    this.items.forEach((element) => {
-      temp += element.price;
-    });
-  }
+    if (this.items) {
+      this.items.forEach((element) => {
+        temp += element.price;
+      });
+    }
     return temp;
   }
 
@@ -30,8 +30,12 @@ export class CartService {
     this.items.push(product);
     localStorage.setItem('items', JSON.stringify(this.items));
   }
-
-
+  removefromCart(cartItem: Product) {
+    this.items = this.items.filter(
+      (itm) => itm.productID !== cartItem.productID
+    );
+    localStorage.setItem('items', JSON.stringify(this.items));
+  }
 
   emptyCart() {
     this.items = [];
