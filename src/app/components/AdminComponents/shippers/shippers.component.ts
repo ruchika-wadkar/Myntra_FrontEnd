@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { shipper } from '../model/shipper';
+import { shipper } from '../../model/shipper';
 import Swal from 'sweetalert2';
-import { ShipperService } from '../Services/shipper.service';
+import { ShipperService } from '../../Services/shipper.service';
 
 @Component({
   selector: 'app-shippers',

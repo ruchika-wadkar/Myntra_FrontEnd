@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Product, ProductVo } from '../model/product';
-import { ProductsService } from '../Services/products.service';
+import { Product, ProductVo } from '../../model/product';
+import { ProductsService } from '../../Services/products.service';
 import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
-import { CartService } from '../Services/cart.service';
+import { CartService } from '../../Services/cart.service';
 //
 
 @Component({

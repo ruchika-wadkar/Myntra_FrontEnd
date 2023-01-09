@@ -1,0 +1,25 @@
+<p>
+  <mat-toolbar color="accent">
+    <a routerLink="/admin" mat-flat-button color="accent">
+      <i class="fa fa-home"> MYNTRA </i></a
+    >
+    <span class="example-spacer"></span>
+    <div>
+      <a routerLink="/admin/products" mat-flat-button color="accent">
+        <i class="fa fa-product-hunt"></i>Products</a
+      >
+      <a routerLink="/admin/CustomerDetails" mat-flat-button color="accent">
+        <i class="fa fa-user"></i>Customer</a
+      >
+      <a routerLink="/admin/shippers" mat-flat-button color="accent">
+        <i class="fa fa-truck"></i>Shippers</a
+      >
+
+      <a routerLink="/admin/orders" mat-flat-button color="accent">
+        <i class="fa fa-list"></i>Orders</a
+      >
+    </div>
+  </mat-toolbar>
+</p>
+
+<ng-container *ngComponentOutlet="activeTab"></ng-container>

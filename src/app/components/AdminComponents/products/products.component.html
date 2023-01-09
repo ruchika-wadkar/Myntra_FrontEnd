@@ -4,12 +4,12 @@
       Add New Product
     </button>
   </div>
-  <h1>Product Details</h1>
+  <h1>PRODUCT DETAILS</h1>
   <table class="table table-bordered table-striped mt-5">
     <thead>
       <tr>
         <th>Product Id</th>
-        
+
         <th>Product Name</th>
         <th>productImg</th>
         <th>Price</th>
@@ -26,14 +26,13 @@
         </td>
         <td>
           <span>
-            <img src = "{{ product.productImg }}" width="150"  height="150">
+            <img src="{{ product.productImg }}" width="150" height="150" />
           </span>
         </td>
         <td>
           <span>{{ product.productName }}</span>
         </td>
-        
-        
+
         <td>
           <span>{{ product.price | currency : "INR" }}</span>
         </td>

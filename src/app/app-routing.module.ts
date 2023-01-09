@@ -1,55 +1,73 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './components/cart/cart.component';
-import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
+import { CartComponent } from './components/UserComponents/cart/cart.component';
+import { CustomerDetailsComponent } from './components/AdminComponents/customer-details/customer-details.component';
 import { HomeComponent } from './components/home/home.component';
-import { OrdersComponent } from './components/orders/orders.component';
-import { ProductsComponent } from './components/products/products.component';
-import { ShippersComponent } from './components/shippers/shippers.component';
-import { ViewProductsComponent } from './components/view-products/view-products.component';
-import { ViewCustomersComponent } from './components/view-customers/view-customers.component';
+import { OrdersComponent } from './components/AdminComponents/orders/orders.component';
+import { ProductsComponent } from './components/AdminComponents/products/products.component';
+import { ShippersComponent } from './components/AdminComponents/shippers/shippers.component';
+import { ViewProductsComponent } from './components/UserComponents/view-products/view-products.component';
+import { ViewCustomersComponent } from './components/UserComponents/view-customers/view-customers.component';
+import { AdminComponent } from './components/AdminComponents/admin/admin.component';
+import { UserComponent } from './components/UserComponents/user/user.component';
 
 const routes: Routes = [
+  //admin routes
   {
-    path: 'CustomerDetails',
-    component: CustomerDetailsComponent,
-    pathMatch: 'full',
+    path: 'admin',
+    component: AdminComponent,
   },
+  {
+    path: 'admin/CustomerDetails',
+    component: AdminComponent,
+    pathMatch: 'full',
+    data: { component: CustomerDetailsComponent },
+  },
+  {
+    path: 'admin/products',
+    component: AdminComponent,
+    pathMatch: 'full',
+    data: { component: ProductsComponent },
+  },
+  {
+    path: 'admin/shippers',
+    component: AdminComponent,
+    pathMatch: 'full',
+    data: { component: ShippersComponent },
+  },
+  {
+    path: 'admin/orders',
+    component: AdminComponent,
+    pathMatch: 'full',
+    data: { component: OrdersComponent },
+  },
+
+  //User routes
   {
     path: '',
-    component: HomeComponent,
+    component: UserComponent,
     pathMatch: 'full',
   },
-  {
-    path: 'products',
-    component: ProductsComponent,
-    pathMatch: 'full',
-  },
+
   {
     path: 'cart',
-    component: CartComponent,
+    component: UserComponent,
     pathMatch: 'full',
+    data: { component: CartComponent },
   },
+
   {
-    path: 'shippers',
-    component: ShippersComponent,
+    path: 'viewproducts',
+    component: UserComponent,
     pathMatch: 'full',
+    data: { component: ViewProductsComponent },
   },
   {
-    path: 'orders',
-    component: OrdersComponent,
+    path: 'viewcustomers',
+    component: UserComponent,
     pathMatch: 'full',
+    data: { component: ViewCustomersComponent },
   },
-  {
-    path : 'viewproducts',
-    component:ViewProductsComponent,
-    pathMatch:'full',
-  },
-  {
-    path : 'viewcustomers',
-    component:ViewCustomersComponent,
-    pathMatch:'full',
-  }
 ];
 
 @NgModule({

@@ -1,0 +1,25 @@
+<p>
+  <mat-toolbar color="warn">
+    <a routerLink="" mat-flat-button color="warn">
+      <i class="fa fa-home"> MYNTRA </i></a
+    >
+    <span class="example-spacer"></span>
+    <div>
+      <a routerLink="/viewproducts" mat-flat-button color="warn">
+        <i class="fa fa-product-hunt"></i> Products</a
+      >
+      <a routerLink="/viewcustomers" mat-flat-button color="warn">
+        <i class="fa fa-user"></i> Signup</a
+      >
+
+      <a routerLink="/cart" mat-flat-button color="warn">
+        <i class="fa fa-shopping-cart"></i> Cart</a
+      >
+      <a routerLink="/orders" mat-flat-button color="warn">
+        <i class="fa fa-list"></i> Your Orders</a
+      >
+    </div>
+  </mat-toolbar>
+</p>
+
+<ng-container *ngComponentOutlet="activeTab"></ng-container>

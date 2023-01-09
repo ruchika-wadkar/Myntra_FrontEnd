@@ -1,9 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import Swal from 'sweetalert2';
-import { Order, OrderDetails, OrderVo } from '../model/order';
-import { Product } from '../model/product';
-import { CartService } from '../Services/cart.service';
-import { OrdersService } from '../Services/orders.service';
+import { Order, OrderDetails, OrderVo } from '../../model/order';
+import { Product } from '../../model/product';
+import { CartService } from '../../Services/cart.service';
+import { OrdersService } from '../../Services/orders.service';
 
 @Component({
   selector: 'app-cart',

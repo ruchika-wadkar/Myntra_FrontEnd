@@ -2,10 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { customer } from '../model/customer';
+import { customer } from '../../model/customer';
 import Swal from 'sweetalert2';
-import { CustomerService } from '../Services/customer.service';
-import { createInjectableType } from '@angular/compiler';
+import { CustomerService } from '../../Services/customer.service';
 
 @Component({
   selector: 'app-customer-details',

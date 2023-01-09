@@ -1,32 +1,36 @@
-    
 <div class="container">
-  <h1>PRODUCT DETAILS</h1>
-  <div class="container2">
-    <a routerLink="/products" mat-flat-button color="primary">  Admin  </a> 
-</div>
-<div class="row">
-      <ng-container *ngFor="let product of products">
-      <div class="card col-md-3 " style="margin-left:auto" >
-        <img src="{{product.productImg}}" style="margin-left:15%" alt="Card image cap">
-        <hr>
+  <h1>PRODUCTS</h1>
+
+  <div class="row">
+    <ng-container *ngFor="let product of products">
+      <div class="card col-md-3" style="margin-left: auto">
+        <img
+          src="{{ product.productImg }}"
+          style="margin-left: 15%"
+          alt="Card image cap"
+        />
+        <hr />
         <div class="card-body">
-          <h3 class="card-title"><b>{{product.productName}}</b></h3>
+          <h3 class="card-title">
+            <b>{{ product.productName }}</b>
+          </h3>
           <span class="card-text">
-            <p>MRP: {{product.price | currency: 'INR'}}</p>
-           
+            <p>MRP: {{ product.price | currency : "INR" }}</p>
           </span>
-          <button type ="button" class="btn btn-warning mx-3" (click) = "addToCart(product)">Add to cart</button>
+          <button
+            type="button"
+            class="btn btn-warning mx-3"
+            (click)="addToCart(product)"
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </ng-container>
-    </div>
   </div>
+</div>
 
-  
-  
-   
-  
-    <!-- <table class="table table-bordered table-striped mt-5">
+<!-- <table class="table table-bordered table-striped mt-5">
       <thead>
         <tr>
           <th>Product Id</th>

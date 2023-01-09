@@ -2,15 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { customer } from '../model/customer';
+import { customer } from '../../model/customer';
 import Swal from 'sweetalert2';
-import { CustomerService } from '../Services/customer.service';
+import { CustomerService } from '../../Services/customer.service';
 import { createInjectableType } from '@angular/compiler';
 
 @Component({
   selector: 'app-view-customers',
   templateUrl: './view-customers.component.html',
-  styleUrls: ['./view-customers.component.css']
+  styleUrls: ['./view-customers.component.css'],
 })
 export class ViewCustomersComponent implements OnInit {
   customers: customer[];
@@ -22,6 +22,7 @@ export class ViewCustomersComponent implements OnInit {
     private modalService: NgbModal,
     private service: CustomerService
   ) {}
+  ngOnInit(): void {}
 
   savecustomer() {
     this.service.savecustomer(this.customer).subscribe((res) => {
@@ -32,7 +33,7 @@ export class ViewCustomersComponent implements OnInit {
           toast: true,
           position: 'top-end',
           showConfirmButton: false,
-          timer: 1000,
+          timer: 2000,
           timerProgressBar: true,
           didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -42,18 +43,14 @@ export class ViewCustomersComponent implements OnInit {
 
         Toast.fire({
           icon: 'success',
-          title: 'Supplier Added Successfully',
+          title: 'Customer Added Successfully',
         });
         this.ngOnInit(); //reloads the table
       });
     });
     this.customer = new customer();
-    // this.ngOnInit(); //reloads the table
+    this.ngOnInit(); //reloads the table
   }
-  ngOnInit() {
-    throw new Error('Method not implemented.');
-  }
-
 
   open(content3) {
     this.modalService
@@ -77,5 +74,4 @@ export class ViewCustomersComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-
 }
