@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HomeComponent } from '../../home/home.component';
+import { ViewProductsComponent } from '../view-products/view-products.component';
 
 @Component({
   selector: 'app-user',
@@ -8,7 +9,7 @@ import { HomeComponent } from '../../home/home.component';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent {
-  activeTab: any = HomeComponent;
+  activeTab: any = ViewProductsComponent;
 
   constructor(private route: ActivatedRoute) {}
 

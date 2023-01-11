@@ -9,7 +9,7 @@ import { ProductsComponent } from '../products/products.component';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent {
-  activeTab: any = HomeComponent;
+  activeTab: any = ProductsComponent;
 
   constructor(private route: ActivatedRoute) {}
 

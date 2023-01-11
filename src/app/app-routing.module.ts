@@ -46,6 +46,11 @@ const routes: Routes = [
   //User routes
   {
     path: '',
+    component: HomeComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'user',
     component: UserComponent,
     pathMatch: 'full',
   },

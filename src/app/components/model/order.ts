@@ -1,4 +1,3 @@
-import { NumberSchemaDefinition } from 'mongoose';
 import { customer } from './customer';
 import { shipper } from './shipper';
 

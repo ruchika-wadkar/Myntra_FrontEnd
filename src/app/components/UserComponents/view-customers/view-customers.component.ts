@@ -50,6 +50,7 @@ export class ViewCustomersComponent implements OnInit {
     });
     this.customer = new customer();
     this.ngOnInit(); //reloads the table
+    window.location.href = 'http://localhost:9098';
   }
 
   open(content3) {
